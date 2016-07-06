@@ -1,0 +1,81 @@
+Reference Point Name,Volttron Point Name,Units,Min,Max,Modbus Register,Point Address,Default Value without Multiplier,Multiplier,Default Value,Focus Screen,Writable,Notes
+DeviceType,DeviceType,None,0,0,<H,1,0,1,0,Device,FALSE,(Not writable) 0=VavController
+Default Occupied Heat SP,DefaultOccupiedHeatSP,deg C,5,30,<H,7,21.5,100,2150,Temperature,TRUE,
+Default Occupied Cool SP,DefaultOccupiedCoolSP,deg C,5.5,45,<H,8,22.5,100,2250,Temperature,TRUE,
+Unoccupied Heat Setpoint,UnoccupiedHeatSetpoint,deg C,5,30,<H,9,15,100,1500,Temperature,TRUE,
+Unoccupied Cool Setpoint,UnoccupiedCoolSetpoint,deg C,5.5,45,<H,10,30,100,3000,Temperature,TRUE,
+MinHeatSPLimit,MinHeatSPLimit,deg C,5,30,<H,11,19,100,1900,Temperature,TRUE,
+MaxCoolSPLimit,MaxCoolSPLimit,deg C,6.5,45,<H,12,26,100,2600,Temperature,TRUE,
+Low Scale Limit,LowScaleLimit,deg C,5,30,<H,13,15,100,1500,Temperature,TRUE,
+High Scale Limit,HighScaleLimit,deg C,5,30,<H,14,30,100,3000,Temperature,TRUE,
+Damper Control,DamperControl,None,0,1,<H,15,1,1,1,Damper,TRUE,0=Pressure / 1=Demand
+Damper Opening Direction,DamperOpeningDirection,None,0,1,<H,16,0,1,0,Damper,TRUE,0=CCW / 1=CW
+Damper Opening Delay,DamperOpeningDelay,sec,15,300,<H,17,95,10,950,Damper,TRUE,
+Ventilation DB - Over,VentilationDB-Over,deg C,-15,15,<H,18,0.5,100,50,Damper,TRUE,
+Damper Proportional Band,DamperProportionalBand,%,0,100,<H,19,100,1,100,Damper,TRUE,
+Min Damper Opening (Vent),MinDamperOpening(Vent),%,0,100,<H,20,0,1,0,Damper,TRUE,
+Min Damper Opening (Heat),MinDamperOpening(Heat),%,0,100,<H,21,30,1,30,Damper,TRUE,
+Damper Differential (Demand),DamperDifferential(Demand),%,1,100,<H,22,10,1,10,Damper,TRUE,
+Min Ventilation Setpoint,MinVentilationSetpoint,cfm,0,5000,<H,23,90,1,90,Pressure Indep,TRUE,
+Max Ventilation Setpoint,MaxVentilationSetpoint,cfm,0,5000,<H,24,225,1,225,Pressure Indep,TRUE,
+Damper Differential (Flow),DamperDifferential(Flow),cfm,0,1000,<H,25,40,1,40,Pressure Indep,TRUE,
+Duct Diameter,DuctDiameter,inches,0,20,<H,26,8,1,8,Pressure Indep,TRUE,
+K Factor,KFactor,None,1,300,<H,27,2.39,100,239,Pressure Indep,TRUE,
+Min Ventilation Heat Setpoint,MinVentilationHeatSetpoint,cfm,0,200,<H,28,120,1,120,Pressure Indep,TRUE,
+Flow Sensor Type,FlowSensorType,None,0,1,<H,29,0,1,0,Pressure Indep,TRUE,0=LowVelocity / 1=HighVelocity
+Zone Temperature Offset,ZoneTemperatureOffset,deg C,-15,15,<H,30,0,100,0,Calib Temp,TRUE,
+Supply Temperature Offset,SupplyTemperatureOffset,deg C,-15,15,<H,31,0,100,0,Calib Temp,TRUE,
+Airflow Offset,AirflowOffset,cfm,-1000,1000,<H,32,0,1,0,Calib Vent,TRUE,
+Correction Factor,CorrectionFactor,None,0,10,<H,33,1,100,100,Calib Vent,TRUE,
+Duct Heater ID,DuctHeaterID,None,0,5,<H,55,0,1,0,Output5,TRUE,0=No Duct Heater Output / 1-5=Output1-Output5
+RJ45 Port Baud Rate,RJ45PortBaudRate,None,0,5,<H,84,3,1,3,Comm,TRUE,0=9600 / 1=19200 / 2=38400 / 3=57600 / 4=76800 / 5=115200
+RJ45 Port Parity,RJ45PortParity,None,0,2,<H,85,0,1,0,Comm,TRUE,0=NONE / 1=ODD / 2=EVEN
+RJ45 Port Stop Bits,RJ45PortStopBits,None,0,1,<H,86,0,1,0,Comm,TRUE,0=1 Stop Bit / 1=2 Stop Bits
+Location,Location,None,0,0,<H,92,0,1,0,Device,TRUE,"Each reg holds 2 chars -- 16 chars max -- 8 regs --regs 92-99 / BACnet--> Can be written to from device Object, property #58"
+UseHalomo,UseHalomo,None,0,1,<H,100,1,1,1,Output1,TRUE,"When out1+2 or out5 are set to damper, setting this to TRUE means they will be driven by Halomo choices, otherwise use DampDelay"
+UsedLang,UsedLang,None,0,3,<H,101,0,1,0,"(Not writable) 0=Unknown, 1=Modbus, 2=BACnet, 3=Lon",TRUE,
+DamperSpeed,DamperSpeed,None,0,4,<H,102,2,1,2,Pressure Indep,TRUE,"Sets the speed at which the damper will chase the flow setpoint (used only in pressure independent mode). 0=fastest / 4=slowest (In Focus, this is reversed)"
+MinCoolSPLim,MinCoolSPLim,deg C,5.5,44,<H,103,20,100,2000,Temperature,TRUE,
+MaxHeatSPLim,MaxHeatSPLim,deg C,6,44.5,<H,104,25,100,2500,Temperature,TRUE,
+Unoc Heat Offset,UnocHeatOffset,deg C,0,20,<H,105,3,100,300,Temperature,TRUE,
+Unoc Cool Offset,UnocCoolOffset,deg C,0,20,<H,106,5,100,500,Temperature,TRUE,
+Duct Heater SP,DuctHeaterSP,%,5,100,<H,107,25,1,25,Damper,TRUE,"Minimum Damper/Flow Heat SPs only activate when the duct heater output reaches this value (for proportnl outputs, deactivates when goes below SP-5%)"
+Damper Max Position,DamperMaxPosition,%,0,100,<H,108,100,1,100,Damper,TRUE,
+DampUnocMode,DampUnocMode,None,0,2,<H,109,0,1,0,Damper,TRUE,0=Open / 1=Demand / 2=Closed / 3=Normal
+Min Damper Pos - Standby,MinDamperPos-Standby,%,0,100,<H,125,50,1,50,Damper,TRUE,Min Damper position when in standby mode
+Ventilation DB - Under,VentilationDB-Under,deg C,-15,15,<H,126,0.5,100,50,Damper,TRUE,
+Locked Address,LockedAddress,None,0,127,<H,140,0,1,0,Device,TRUE,Saved address (overrides physical dipswitch address). Set to 0 to return to physical address.
+Damper Override Enable,DamperOverrideEnable,None,0,1,<H,160,0,1,0,Visualisation,TRUE,0=No Override / 1=Use override (see override values)
+Damper Override Value,DamperOverrideValue,%,0,100,<H,161,0,1,0,Visualisation,TRUE,
+Schedule Override Enable,ScheduleOverrideEnable,None,0,1,<H,162,0,1,0,Visualisation,TRUE,0=No Override / 1=Use override (see override values)
+Schedule Override Value,ScheduleOverrideValue,None,0,1,<H,163,1,1,1,Visualisation,TRUE,0=Unoccupied / 1=Occupied
+Reset,Reset,None,0,1,<H,164,0,1,0,Device,TRUE,"Modbus only, write a ""1"" to cause the device to reset."
+Reprogram,Reprogram,None,0,255,<H,165,0,1,0,Device,TRUE,Writing 255 to this address causes the device to enter bootload mode (warning: cannot be returned from without Focus)
+Tstat Override,TstatOverride,None,0,1,<H,166,0,,0,,TRUE,
+Wink command (VC2000),Winkcommand(VC2000),None,0,1,<H,167,0,1,0,,TRUE,Send a '1' to make the VC2000 blink it's status LED for 2 minutes
+Display Only Registers,DisplayOnlyRegisters,None,0,0,<H,250,0,1,0,Visualisation,TRUE,"Registers 250 to 291. Must access using Multiple Read/Write. [2 first regs are visual display choices: SupplyTemp, BaseboardID ][Then 8 regs for each output name (x5)]"
+Occupancy NVI,OccupancyNVI,None,,,<H,136,,1,,,TRUE,0=Unoccupied / 1=Occupied
+Outside Temp Net Input,OutsideTempNetInput,deg C,,,<H,139,,100,,,TRUE,Allows the outside temp to be set by another network device. Set to 0x7FFF to invalidate. Will always read 0x7FFF.
+Zone Temp Input,ZoneTempInput,deg C,,,<H,200,,100,,,TRUE,
+Heat Setpoint Input,HeatSetpointInput,deg C,,,<H,201,,100,,,TRUE,
+Cool Setpoint Input,CoolSetpointInput,deg C,,,<H,202,,100,,,TRUE,
+Air Flow Input,AirFlowInput,cfm,,,<H,203,,1,,,TRUE,
+Override Input,OverrideInput,None,,,<H,204,,1,,,TRUE,0=No schedule override / 1= Schedule override in effect
+Supply Temp Input,SupplyTempInput,deg C,,,<H,205,,100,,,TRUE,
+Damper Override Val,DamperOverrideVal,%,,,<H,212,,1,,,TRUE,"Modbus: To remove override, set to 255."
+Outside Temp Input,OutsideTempInput,deg C,,,<H,213,,100,,,TRUE,Allows the outside temp to be set by another network device. Set to 0x7FFF to invalidate.
+Slab Temp Input,SlabTempInput,deg C,,,<H,214,,100,,,TRUE,
+Zone Temp,ZoneTemp,deg C,,,<H,1,,100,,,TRUE,
+Active Heat Setpoint,ActiveHeatSetpoint,deg C,,,<H,2,,100,,,TRUE,
+Active Cool Setpoint,ActiveCoolSetpoint,deg C,,,<H,3,,100,,,TRUE,
+Demand,Demand,%,,,<H,4,,1,,,TRUE,
+Damper State,DamperState,None,,,<H,5,,1,,,TRUE,0=OK / 1=STALLED / 2=REINITIALIZING
+Damper Position,DamperPosition,%,,,<H,6,,1,,,TRUE,111% when performing damper reinitilisation
+Air Flow,AirFlow,cfm,,,<H,7,,1,,,TRUE,
+Supply Temp,SupplyTemp,deg C,,,<H,8,,100,,,TRUE,
+Occupancy Status,OccupancyStatus,None,,,<H,14,,1,,,TRUE,0=Unoccupied / 1=Occupied (AUTO)
+Slab Temp,SlabTemp,deg C,,,<H,15,,0,,,TRUE,
+Unoc Override Status,UnocOverrideStatus,None,,,<H,16,,1,,,FALSE,0=AUTO / 1=Activate override from unoccupied mode
+Radiant Cycle Used,RadiantCycleUsed,%,,,<H,17,,0,,,TRUE,
+Discharge Temp,DischargeTemp,deg C,,,<H,18,,100,,,TRUE,
+Standby Mode Active,StandbyModeActive,None,,,<H,19,,0,,,TRUE,"When in standby mode, uses Standby Min position, declares demand and weight 0 to master"
