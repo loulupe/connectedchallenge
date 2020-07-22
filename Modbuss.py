@@ -128,20 +128,20 @@ def discover(type):
                     # client.bind(("192.168.1.2",0))
                     print(client.connect())
                     if type == 'Prolon_VAV':
-                        possible_slave_ids = [1, 2, 7, 16]
+                        possible_subordinate_ids = [1, 2, 7, 16]
                     elif type == 'Prolon_RTU':
-                        possible_slave_ids = [15, 20]
+                        possible_subordinate_ids = [15, 20]
                     else:
-                        possible_slave_ids = []
-                    print("possible slave ids: ",possible_slave_ids)
-                    for slave_id in possible_slave_ids:
-                            print("slave: ",slave_id)
+                        possible_subordinate_ids = []
+                    print("possible subordinate ids: ",possible_subordinate_ids)
+                    for subordinate_id in possible_subordinate_ids:
+                            print("subordinate: ",subordinate_id)
                             print("result b4: ",result)
-                            result = client.read_input_registers(0,unit=slave_id)
-                            print("slave_id: ",slave_id," result: ",result)
+                            result = client.read_input_registers(0,unit=subordinate_id)
+                            print("subordinate_id: ",subordinate_id," result: ",result)
                             if result is not None:
-                                responses.append(ip+':'+str(slave_id))
-                            print("end of loop ",slave_id)
+                                responses.append(ip+':'+str(subordinate_id))
+                            print("end of loop ",subordinate_id)
 
                     client.close()
                     print("client closed")
